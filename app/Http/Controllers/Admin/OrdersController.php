@@ -29,15 +29,7 @@ class OrdersController extends Controller
     {
         abort_if(Gate::denies('order_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $client_orders = Client::pluck('name_client', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        $languages_s = Language::pluck('language', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        $languages_nas = Language::pluck('language', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        $products = Product::pluck('name_file', 'id');
-
-        return view('admin.orders.create', compact('client_orders', 'languages_nas', 'languages_s', 'products'));
+        return view('admin.orders.create');
     }
 
     public function store(StoreOrderRequest $request)
@@ -53,12 +45,9 @@ class OrdersController extends Controller
         abort_if(Gate::denies('order_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $client_orders = Client::pluck('name_client', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        $languages_s = Language::pluck('language', 'id')->prepend(trans('global.pleaseSelect'), '');
-
+        $languages_s   = Language::pluck('language', 'id')->prepend(trans('global.pleaseSelect'), '');
         $languages_nas = Language::pluck('language', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        $products = Product::pluck('name_file', 'id');
+        $products      = Product::pluck('name_file', 'id');
 
         $order->load('client_order', 'languages_s', 'languages_na', 'products');
 
