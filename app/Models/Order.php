@@ -14,9 +14,9 @@ class Order extends Model
     use HasFactory;
 
     public const TYPEPAY_SELECT = [
-        'cashless' => 'Beznal',
-        'cash'     => 'Nal',
-        'card'     => 'Karta',
+        'cashless' => 'Безналичный',
+        'cash'     => 'Наличный',
+        'card'     => 'Карта',
     ];
 
     public const STATUS_SELECT = [

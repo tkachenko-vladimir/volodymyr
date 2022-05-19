@@ -27,7 +27,7 @@ class StoreOrderRequest extends FormRequest
             'clients_pages' => [
                 'nullable',
                 'integer',
-                'min:-2147483648',
+                'min:1',
                 'max:2147483647',
             ],
             'start_time' => [

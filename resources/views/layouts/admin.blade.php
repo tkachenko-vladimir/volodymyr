@@ -20,6 +20,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.3/css/skins/_all-skins.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css" rel="stylesheet" type="text/css" >
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
     @yield('styles')
     @livewireStyles
@@ -236,7 +237,11 @@
 
     </script>
     @yield('scripts')
+
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     @livewireScripts
+    <x:pharaonic-select2::scripts />
+    <script src="{{ asset('vendor/pharaonic/pharaonic.select2.min.js') }}"></script>
 </body>
 
 </html>

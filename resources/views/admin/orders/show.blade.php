@@ -67,34 +67,18 @@
                                 </tr>
                                 <tr>
                                     <th>
-                                        {{ trans('cruds.order.fields.start_time') }}
+                                        Время выполнения
                                     </th>
                                     <td>
-                                        {{ $order->start_time }}
+                                        {{ $order->start_time }}&nbsp; -> &nbsp;{{ $order->end_time }}
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>
-                                        {{ trans('cruds.order.fields.end_time') }}
+                                        Языки
                                     </th>
                                     <td>
-                                        {{ $order->end_time }}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        {{ trans('cruds.order.fields.languages_s') }}
-                                    </th>
-                                    <td>
-                                        {{ $order->languages_s->language ?? '' }}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        {{ trans('cruds.order.fields.languages_na') }}
-                                    </th>
-                                    <td>
-                                        {{ $order->languages_na->language ?? '' }}
+                                        {{ $order->languages_s->language ?? '' }}&nbsp; -> &nbsp;{{ $order->languages_na->language ?? '' }}
                                     </td>
                                 </tr>
                                 <tr>

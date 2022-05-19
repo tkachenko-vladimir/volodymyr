@@ -28,35 +28,27 @@
                                         {{ trans('cruds.order.fields.id') }}
                                     </th>
                                     <th>
+                                        {{ trans('cruds.order.fields.client_order') }}
+                                    </th>
+                                    <th>
+                                        {{ trans('cruds.order.fields.product') }}
+                                    </th>
+                                    <th>
                                         {{ trans('cruds.order.fields.status') }}
                                     </th>
                                     <th>
                                         {{ trans('cruds.order.fields.typepay') }}
                                     </th>
                                     <th>
-                                        {{ trans('cruds.order.fields.client_order') }}
+                                        Оплата/Страницы
                                     </th>
                                     <th>
-                                        {{ trans('cruds.order.fields.clients_many') }}
+                                        Время
                                     </th>
                                     <th>
-                                        {{ trans('cruds.order.fields.clients_pages') }}
+                                        Языки
                                     </th>
-                                    <th>
-                                        {{ trans('cruds.order.fields.start_time') }}
-                                    </th>
-                                    <th>
-                                        {{ trans('cruds.order.fields.end_time') }}
-                                    </th>
-                                    <th>
-                                        {{ trans('cruds.order.fields.languages_s') }}
-                                    </th>
-                                    <th>
-                                        {{ trans('cruds.order.fields.languages_na') }}
-                                    </th>
-                                    <th>
-                                        {{ trans('cruds.order.fields.product') }}
-                                    </th>
+                                    
                                     <th>
                                         &nbsp;
                                     </th>
@@ -72,36 +64,30 @@
                                             {{ $order->id ?? '' }}
                                         </td>
                                         <td>
+                                            {{ $order->client_order->name_client ?? '' }}
+                                        </td>
+                                        <td>
+                                            @foreach($order->products as $key => $item)
+                                                <span class="label label-info label-many">{{ $item->name_file }}<br></span>
+                                            @endforeach
+                                        </td>
+                                        <td>
                                             {{ App\Models\Order::STATUS_SELECT[$order->status] ?? '' }}
                                         </td>
                                         <td>
                                             {{ App\Models\Order::TYPEPAY_SELECT[$order->typepay] ?? '' }}
                                         </td>
                                         <td>
-                                            {{ $order->client_order->name_client ?? '' }}
+                                            Сумма: {{ $order->clients_many ?? '' }}<br>
+                                            Страницы:{{ $order->clients_pages ?? '' }}
                                         </td>
                                         <td>
-                                            {{ $order->clients_many ?? '' }}
+                                            Старт:{{ $order->start_time ?? '' }}<br>
+                                            Сдача:{{ $order->end_time ?? '' }}
                                         </td>
                                         <td>
-                                            {{ $order->clients_pages ?? '' }}
-                                        </td>
-                                        <td>
-                                            {{ $order->start_time ?? '' }}
-                                        </td>
-                                        <td>
-                                            {{ $order->end_time ?? '' }}
-                                        </td>
-                                        <td>
-                                            {{ $order->languages_s->language ?? '' }}
-                                        </td>
-                                        <td>
-                                            {{ $order->languages_na->language ?? '' }}
-                                        </td>
-                                        <td>
-                                            @foreach($order->products as $key => $item)
-                                                <span class="label label-info label-many">{{ $item->name_file }}</span>
-                                            @endforeach
+                                            C: {{ $order->languages_s->language ?? '' }}<br>
+                                            На: {{ $order->languages_na->language ?? '' }}
                                         </td>
                                         <td>
                                             @can('order_show')

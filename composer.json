@@ -14,6 +14,7 @@
         "laraveldaily/laravel-charts": "^0.1.29",
         "livewire/livewire": "^2.10",
         "nuovo/spreadsheet-reader": "^0.5.11",
+        "pharaonic/livewire-select2": "^1.0",
         "spatie/laravel-medialibrary": "^10.0.7",
         "yajra/laravel-datatables-oracle": "^9.19"
     },

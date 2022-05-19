@@ -34,9 +34,12 @@ class OrdersController extends Controller
 
     public function store(StoreOrderRequest $request)
     {
-        $order = Order::create($request->all());
-        $order->products()->sync($request->input('products', []));
 
+        
+        $order = Order::create($request->all());
+        dd($order);
+        $order->products()->sync($request->input('products', []));
+        
         return redirect()->route('admin.orders.index');
     }
 
